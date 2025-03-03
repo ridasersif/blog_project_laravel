@@ -14,25 +14,29 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Content</th>
-                <th>Status</th>
+                <th>Category</th>
                 <th>Image</th>
+                <th>Status</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($articles as $article)
                 <tr>
-                    <td>{{ $article->id }}</td>
-                    <td>{{ $article->title }}</td>
-                    <td>{{ $article->content }}</td>
-                    <td>
+                    <td align="center">{{ $article->id }}</td>
+                    <td align="center">{{ $article->title }}</td>
+                    <td align="center">{{ $article->content }}</td>
+                    <td align="center">{{ $article->category?->name}}</td>
+                  
+                    <td align="center"><img src="{{ asset('storage/' . $article->image) }}" alt="image" height="150px" width="150px"></td>
+                    <td align="center">
                        
                         <button class="btn btn-{{ $article->status ? 'success' : 'danger' }} btn-sm toggle-status" data-id="{{ $article->id }}">
                             {{ $article->status ? 'Active' : 'Inactive' }}
                         </button>
                     </td>
-                    <td><img src="{{ asset('storage/' . $article->image) }}" alt="image" height="150px" width="150px"></td>
-                    <td>
+                    <td align="center">
                         <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <!-- Form for Deletion -->
                         <form action="{{ route('articles.destroy', $article->id) }}" method="POST" class="delete-form" style="display: inline;">
@@ -43,7 +47,7 @@
                     </td>
                 </tr>
             @empty
-                <tr>
+                <tr align="center">
                     <td colspan="6" class="text-center"><h4>No Articles Available</h4></td>
                 </tr>
             @endforelse

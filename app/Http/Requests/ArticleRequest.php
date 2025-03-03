@@ -24,6 +24,7 @@ class ArticleRequest extends FormRequest
         $roules=[
             'title'=>'required|min:5',
             'content'=>'required|min:5',
+            'category_id'=>'required',
            
         ];
         if($this->route()->getActionMethod()==='store'){

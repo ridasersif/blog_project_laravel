@@ -19,9 +19,11 @@
         <tbody>
             @forelse ($categories as $category)
                 <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>
+                    <td align="center">{{ $category->id }}</td>
+                    <td align="center">{{ $category->name }}</td>
+                    <td align="center">
+                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info btn-sm">show</a>
+
                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <!-- Form for Deletion -->
                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="delete-form" style="display: inline;">

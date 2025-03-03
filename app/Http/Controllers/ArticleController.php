@@ -12,10 +12,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    
+     
     public function index()
     {
         $articles=Article::paginate(4);
+      
         return view('article.index',compact('articles'));
     }
     public function create()
@@ -23,7 +24,7 @@ class ArticleController extends Controller
         $article=new Article;
         $categories= Category::all();
         $isUpdate=false;
-        return view('article.form',compact('article','isUpdate','categorie'));
+        return view('article.form',compact('article','isUpdate','categories'));
     }
 
     public function store(ArticleRequest $request)

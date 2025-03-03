@@ -22,6 +22,12 @@
                         </div>
                         <img src="{{ asset('storage/' . $article->image) }}" class="card-img-top"
                             style="height: 200px; object-fit: cover;">
+                            <div class="text-center mt-2">
+                                <span class="badge bg-info text-white px-3 py-2 fw-bold">
+                                    {{ $article->category?->name }}
+                                </span>
+                            </div>
+                            
                         <div class="card-body text-center">
                             <p class="card-text text-muted">{{ Str::limit($article->content, 100, '...') }}</p>
                             <a href="#" class="btn btn-primary fw-bold">Read More</a>
@@ -43,6 +49,12 @@
 
 
     <style>
+        .badge {
+        font-size: 14px;
+        border-radius: 20px;
+        display: inline-block;
+        }
+
         .article-card {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }

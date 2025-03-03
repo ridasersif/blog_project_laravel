@@ -29,6 +29,18 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-4">
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" >
+                    <option value="">Plase choose your category </option>
+                    @foreach ($categories as $category)
+                      <option @selected(old('category_id',$article->category_id)===$category->id) value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+                @error('category')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             
      
             <div class="mb-4">
