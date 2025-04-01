@@ -22,7 +22,6 @@
                     <td align="center">{{ $category->id }}</td>
                     <td align="center">{{ $category->name }}</td>
                     <td align="center">
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info btn-sm">show</a>
 
                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <!-- Form for Deletion -->
